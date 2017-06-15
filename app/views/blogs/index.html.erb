@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1><div style="color:#FF1B00; font-size:50px; text-align:center">MyBlog</div></h1>
+
+<p align="center"><a href="https://cloned-workspace-harrisonfra.c9users.io/blogs/new"><img src="http://www.arew.lt/wp/wp-content/uploads/2016/07/blogpost.png"/></p>
+
+<table align="center">
+  <thead>
+    <tr>
+      <th>Blog Title</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= blog.title %></td>
+        <td><%= blog.body %></td>
+        <td><%= link_to 'View', blog %></td>
+        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+        <td><%= link_to 'Remove', blog, method: :delete, data: { confirm: 'Are you sure? This will destroy your post, there is no going back after its gone.'} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!--%= link_to 'New Blog', new_blog_path %-->
